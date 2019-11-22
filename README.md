@@ -8,9 +8,9 @@ e2e-tests needs to be added, updated, and removed.
 
 2. [The Application Shell](https://angular.io/tutorial/toh-pt0#the-application-shell)
 
-  1. [Setup your environment](https://angular.io/tutorial/toh-pt0#set-up-your-environment)
+    1. [Setup your environment](https://angular.io/tutorial/toh-pt0#set-up-your-environment)
   
-  2. [Create a new workspace and an initial application](https://angular.io/tutorial/toh-pt0#create-a-new-workspace-and-an-initial-application)
+    2. [Create a new workspace and an initial application](https://angular.io/tutorial/toh-pt0#create-a-new-workspace-and-an-initial-application)
   
-  3. [Angular components](https://angular.io/tutorial/toh-pt0#angular-components)
+    3. [Angular components](https://angular.io/tutorial/toh-pt0#angular-components)
     
