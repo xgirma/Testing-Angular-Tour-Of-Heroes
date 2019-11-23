@@ -5,6 +5,7 @@ import { HeroesComponent } from './heroes.component';
 describe('HeroesComponent', () => {
   let component: HeroesComponent;
   let fixture: ComponentFixture<HeroesComponent>;
+  let compiled: any;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -17,9 +18,14 @@ describe('HeroesComponent', () => {
     fixture = TestBed.createComponent(HeroesComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
+    compiled = fixture.debugElement.nativeElement;
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it(`should a hero`, () => {
+    expect(compiled.querySelector('p').textContent).toEqual(component.hero);
   });
 });
