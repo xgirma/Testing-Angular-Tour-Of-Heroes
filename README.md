@@ -21,7 +21,7 @@ being updated, how many testes being removed, and how many times the component g
 ### Make changes to the application
 In this section we will remove the default page, add a title, and fix failing tests.
 
-> Ref: [make changes to the application](https://github.com/xgirma/Testing-Angular-Tour-Of-Heroes/blob/master/doc/00.app.shell/01.make.changes.to.the.application.md)
+> >> [make changes to the application](https://github.com/xgirma/Testing-Angular-Tour-Of-Heroes/blob/master/doc/00.app.shell/01.make.changes.to.the.application.md)
 
 | type| component  | new  | changed   | removed   | revision |
 |---|---|:---:|:---:|:---|:---:|
