@@ -1,5 +1,7 @@
 import { TestBed, async, ComponentFixture } from '@angular/core/testing';
+
 import { AppComponent } from './app.component';
+import { HeroesComponent } from './heroes/heroes.component';
 
 describe('AppComponent', () => {
   let component: AppComponent;
@@ -9,7 +11,10 @@ describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [],
-      declarations: [ AppComponent ],
+      declarations: [
+        AppComponent,
+        HeroesComponent
+      ],
     }).compileComponents();
   }));
 
@@ -26,5 +31,9 @@ describe('AppComponent', () => {
 
   it(`should have as title 'Tour of Heroes'`, () => {
     expect(component.title).toEqual('Tour of Heroes');
+  });
+
+  it('should have app-heroes element', () => {
+    expect(compiled.querySelector('app-heroes')).toBeDefined();
   });
 });
