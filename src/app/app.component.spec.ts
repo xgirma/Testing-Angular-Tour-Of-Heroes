@@ -24,7 +24,7 @@ describe('AppComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it(`should have as title 'Testing-Angular-Tour-Of-Heroes'`, () => {
+  it(`should have as title 'Tour of Heroes'`, () => {
     expect(component.title).toEqual('Tour of Heroes');
   });
 });
