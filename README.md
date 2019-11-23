@@ -18,5 +18,8 @@ tests are being updated, how many testes being removed, and how many times the c
 |e2e | app  |  1 | 0  | 0  |  0 |
     
 ### Make changes to the application
+In this section we will remove the default page, add a title, and fix failing tests.
+
+> Ref: [make changes to the application](https://github.com/xgirma/Testing-Angular-Tour-Of-Heroes/blob/master/doc/00.app.shell/01.make.changes.to.the.application.md)
     
 > Ref: [The Application Shell](https://angular.io/tutorial/toh-pt0#the-application-shell)
