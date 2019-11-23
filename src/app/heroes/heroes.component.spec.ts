@@ -25,7 +25,7 @@ describe('HeroesComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it(`should a hero`, () => {
+  it(`should have a hero`, () => {
     expect(compiled.querySelector('p').textContent).toEqual(component.hero);
   });
 });
