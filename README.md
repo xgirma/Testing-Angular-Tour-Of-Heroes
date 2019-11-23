@@ -29,3 +29,7 @@ In this section we will remove the default page, add a title, and fix failing te
 |e2e | app  |  1 | 0  | 1  |  0 |
     
 > Ref: [The Application Shell](https://angular.io/tutorial/toh-pt0#the-application-shell)
+
+> Tag: [Source](https://github.com/xgirma/Testing-Angular-Tour-Of-Heroes/tree/v0.0.2)
+
+## The Hero Editor
