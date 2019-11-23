@@ -5,6 +5,7 @@ e2e-tests needs to be added, updated, and removed.
     
 ## Getting Started
 Getting started instructions found [here](https://github.com/xgirma/Testing-Angular-Tour-Of-Heroes/blob/master/doc/getting.started.md). 
+If you encounter an error you may find a solution [here](https://github.com/xgirma/Testing-Angular-Tour-Of-Heroes/blob/master/doc/common.errores.md).
 
 ## The Application Shell
 Creating a new workspace using the Angular CLI, gives us a test configuration out-of-the-box and template tests.

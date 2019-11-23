@@ -50,3 +50,28 @@ describe('AppComponent', () => {
   });
 });
 ```
+
+## Port 4200 is already in use. Use '--port' to specify a different port.
+When run e2e test while the app is running on port 4200
+```text
+An unhandled exception occurred: Port 4200 is already in use. Use '--port' to specify a different port.
+See "/private/var/folders/f8/zq_1ljwd42q8n125_8nrz4vr0000gp/T/ng-BAUxhI/angular-errors.log" for further details.
+```
+Let the e2e test run on a different port, e.g. 4201
+
+### :: angular.json
+```json
+"e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "e2e/protractor.conf.js",
+            "devServerTarget": "Testing-Angular-Tour-Of-Heroes:serve",
+            "port": 2401
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "Testing-Angular-Tour-Of-Heroes:serve:production"
+            }
+          }
+        }
+```
