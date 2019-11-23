@@ -3,14 +3,20 @@ Exploring the process of unit- and e2e-testing the [Tour of Heroes application](
 Focusing on the connection between application progression and the number of unit- and 
 e2e-tests needs to be added, updated, and removed.
     
-## Contents
-1. [Getting started](https://github.com/xgirma/Testing-Angular-Tour-Of-Heroes/blob/master/doc/getting.started.md)
+## Getting Started
+Getting started instructions found [here](https://github.com/xgirma/Testing-Angular-Tour-Of-Heroes/blob/master/doc/getting.started.md). 
 
-2. [The Application Shell](https://angular.io/tutorial/toh-pt0#the-application-shell)
+## The Application Shell
+Creating a new workspace using the Angular CLI, gives us a test configuration out-of-the box and template tests. 
 
-    1. [Setup your environment](https://angular.io/tutorial/toh-pt0#set-up-your-environment)
-  
-    2. [Create a new workspace and an initial application](https://angular.io/tutorial/toh-pt0#create-a-new-workspace-and-an-initial-application)
-  
-    3. [Angular components](https://angular.io/tutorial/toh-pt0#angular-components)
+In the table, we are describing, the type of test, which component is being tested, how many new tests are added, how many
+tests are being updated, how many testes being removed, and how many times the component gets revised. 
+
+| type| component  | new  | changed   | removed   | revision |
+|---|---|:---:|:---:|:---|:---:|
+|unit | app  |  3 | 0  | 0  |  0 |
+|e2e | app  |  1 | 0  | 0  |  0 |
     
+### Make changes to the application
+    
+> Ref: [The Application Shell](https://angular.io/tutorial/toh-pt0#the-application-shell)
