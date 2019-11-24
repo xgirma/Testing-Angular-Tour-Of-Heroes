@@ -8,7 +8,15 @@ describe('AppHeroes', () => {
     page.navigateTo();
   });
 
+  it(`should have title`, () => {
+    expect(page.getTitle()).toEqual('WINDSTORM Details');
+  });
+
+  it(`should have id`, () => {
+    expect(page.getId()).toEqual('id: 1');
+  });
+
   it(`should have name 'Windstorm'`, () => {
-    expect(page.getName()).toContain('Windstorm');
+    expect(page.getName()).toEqual('name: Windstorm');
   });
 });
