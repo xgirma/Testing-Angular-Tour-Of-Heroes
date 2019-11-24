@@ -75,3 +75,89 @@ Let the e2e test run on a different port, e.g. 4201
           }
         }
 ```
+
+## Template parse errors: Can't bind to 'ngModel' since it isn't a known property of 'input'
+
+```text
+Error: Template parse errors:
+Can't bind to 'ngModel' since it isn't a known property of 'input'. ("
+<div>
+  <label>name:
+    <input [ERROR ->][(ngModel)]="hero.name" placeholder="name"/>
+  </label>
+</div>
+"): ng:///DynamicTestModule/HeroesComponent.html@4:11
+```
+
+solution: for view component, add `FormsModule`
+```diff
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
++ import { FormsModule } from '@angular/forms';
+
+import { AppComponent } from './app.component';
+import { HeroesComponent } from './heroes/heroes.component';
+
+@NgModule({
+  declarations: [
+    AppComponent,
+    HeroesComponent
+  ],
+  imports: [
+    BrowserModule,
++    FormsModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+```
+
+solution 2: for the spec(test), add ``
+
+```diff
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { By } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
+
+import { HeroesComponent } from './heroes.component';
+
+describe('HeroesComponent', () => {
+  let component: HeroesComponent;
+  let fixture: ComponentFixture<HeroesComponent>;
+  let compiled: any;
+
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      imports: [ FormsModule ],
+      declarations: [ HeroesComponent ]
+    })
+    .compileComponents();
+  }));
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(HeroesComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+    compiled = fixture.debugElement.nativeElement;
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+
+  it(`should have a hero`, () => {
+    expect(component.hero).toBeDefined();
+  });
+
+  it('should have title', () => {
+    expect(compiled.querySelector('h2').textContent).toContain('WINDSTORM Details');
+  });
+
+  it('should have id and name', () => {
+    const myHero = fixture.debugElement.queryAll(By.css('div'));
+    expect(myHero[0].nativeElement.textContent).toEqual('id: 1');
+    expect(myHero[1].nativeElement.textContent).toEqual('name: Windstorm');
+  });
+});
+```
