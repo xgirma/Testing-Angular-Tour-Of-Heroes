@@ -16,7 +16,12 @@ describe('AppHeroes', () => {
     expect(page.getId()).toEqual('id: 1');
   });
 
-  it(`should have name 'Windstorm'`, () => {
-    expect(page.getName()).toEqual('name: Windstorm');
-  });
+  // it(`should have name 'Windstorm'`, () => {
+  //   expect(page.getName()).toEqual('name: Windstorm');
+  // });
+
+  it('should have editable hero name', async () => {
+    await page.setName('Dr. Nice');
+    expect(page.getTitle()).toEqual('DR. NICE Details');
+   });
 });
