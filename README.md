@@ -58,7 +58,7 @@ Display a list of heroes.
 |---|---|:---:|:---:|:---|:---:|
 |unit | app  |  0 | 0  | 0  |  0 |
 |e2e | app  |  0 | 0  | 0  |  0 |
-|e2e | heroes  |  0 | 0  | 0  |  0 |
+|unit | heroes  |  0 | 0  | 0  |  0 |
 |e2e | heroes  |  0 | 0  | 0  |  0 |
 
 > Ref: [Display a Heroes List](https://angular.io/tutorial/toh-pt2#display-a-heroes-list)
@@ -73,9 +73,9 @@ Display a list of heroes.
 |---|---|:---:|:---:|:---|:---:|
 |unit | app  |  0 | 0  | 0  |  0 |
 |e2e | app  |  0 | 0  | 0  |  0 |
+|unit | heroes  |  0 | 0  | 0  |  0 |
 |e2e | heroes  |  0 | 0  | 0  |  0 |
-|e2e | heroes  |  0 | 0  | 0  |  0 |
-|e2e | hero-detail  |  0 | 0  | 0  |  0 |
+|unit | hero-detail  |  0 | 0  | 0  |  0 |
 |e2e | hero-detail  |  0 | 0  | 0  |  0 |
 
 > Ref: [Master/Detail Components](https://angular.io/tutorial/toh-pt3#masterdetail-components)
