@@ -3,6 +3,7 @@ import { By } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 
 import { HeroesComponent } from './heroes.component';
+import { HEROES } from '../mock-heroes';
 
 describe('HeroesComponent', () => {
   let component: HeroesComponent;
@@ -33,7 +34,6 @@ describe('HeroesComponent', () => {
   });
 
   it('should have title', () => {
-    // expect(compiled.querySelector('h2').textContent).toContain('WINDSTORM Details');
     const myHero = fixture.debugElement.queryAll(By.css('h2'));
     expect(myHero[1].nativeElement.textContent).toContain('WINDSTORM Details');
   });
@@ -41,6 +41,19 @@ describe('HeroesComponent', () => {
   it('should have id', () => {
     const myHero = fixture.debugElement.queryAll(By.css('div'));
     expect(myHero[0].nativeElement.textContent).toEqual('id: 1');
+  });
+
+  it('should have title', () => {
+    const heroes = fixture.debugElement.queryAll(By.css('h2'));
+    expect(heroes[0].nativeElement.textContent).toEqual('My Heroes');
+  });
+
+  it('should have a list of heroes', () => {
+    const heroes = fixture.debugElement.queryAll(By.css('.heroes > li'));
+    HEROES.forEach((hero, index) => {
+      expect(heroes[index].nativeElement.textContent).toContain(hero.id);
+      expect(heroes[index].nativeElement.textContent).toContain(hero.name);
+    });
   });
 });
 
@@ -73,9 +86,6 @@ describe('HeroesComponent: input', () => {
     fixture.detectChanges();
 
     // two way binding
-    // expect(compiled.querySelector('h2').textContent)
-    //   .toEqual((component.hero.name).toUpperCase() + ' Details');
-    // const myHero = fixture.debugElement.queryAll(By.css('h2'));
     const myHero = fixture.debugElement.queryAll(By.css('h2'));
     expect(myHero[1].nativeElement.textContent)
       .toEqual((component.hero.name).toUpperCase() + ' Details');
