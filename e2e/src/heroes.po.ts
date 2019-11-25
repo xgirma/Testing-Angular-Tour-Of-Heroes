@@ -5,6 +5,7 @@ export class AppHeroes {
   title = element.all(by.css('app-heroes > h2'));
   id = element.all(by.css('app-heroes > div'));
   name = element(by.css('input'));
+  list = element.all(by.css('.heroes > li'));
 
   navigateTo() {
     browser.get(browser.baseUrl);
@@ -22,5 +23,9 @@ export class AppHeroes {
   setName(name) {
     this.name.clear();
     return this.name.sendKeys(name) as Promise<any>;
+  }
+
+  getHeroDetail(index) {
+    return this.list.get(index).getText() as Promise<any>;
   }
 }

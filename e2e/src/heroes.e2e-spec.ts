@@ -1,4 +1,5 @@
 import { AppHeroes } from './heroes.po';
+import { HEROES } from '../mock-heroes';
 
 describe('AppHeroes', () => {
   let page: AppHeroes;
@@ -16,12 +17,15 @@ describe('AppHeroes', () => {
     expect(page.getId()).toEqual('id: 1');
   });
 
-  // it(`should have name 'Windstorm'`, () => {
-  //   expect(page.getName()).toEqual('name: Windstorm');
-  // });
-
   it('should have editable hero name', async () => {
     await page.setName('Dr. Nice');
     expect(page.getTitle()).toEqual('DR. NICE Details');
    });
+
+  it('should have a list of heroes', () => {
+    HEROES.forEach((hero, index) => {
+      expect(page.getHeroDetail(index)).toContain(hero.id);
+      expect(page.getHeroDetail(index)).toContain(hero.name);
+    });
+  });
 });
