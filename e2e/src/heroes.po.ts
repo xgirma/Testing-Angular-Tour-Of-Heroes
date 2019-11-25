@@ -2,8 +2,9 @@ import { browser, by, element, ExpectedConditions as EC } from 'protractor';
 
 export class AppHeroes {
   body = element(by.css('body'));
-  title = element.all(by.css('app-heroes > h2'));
-  id = element.all(by.css('app-heroes > div'));
+  title = element(by.css('app-heroes > h2'));
+  detailTitle = element(by.css('app-heroes > div > h2'));
+  id = element(by.css('app-heroes > div > div:nth-child(2)'));
   name = element(by.css('input'));
   list = element.all(by.css('.heroes > li'));
 
@@ -13,11 +14,15 @@ export class AppHeroes {
   }
 
   getTitle() {
-    return this.title.get(1).getText() as Promise<any>;
+    return this.title.getText() as Promise<string>;
+  }
+
+  getDetailTitle() {
+    return this.detailTitle.getText() as Promise<string>;
   }
 
   getId() {
-    return this.id.get(0).getText() as Promise<any>;
+    return this.id.getText() as Promise<string>;
   }
 
   setName(name) {
@@ -26,6 +31,10 @@ export class AppHeroes {
   }
 
   getHeroDetail(index) {
-    return this.list.get(index).getText() as Promise<any>;
+    return this.list.get(index).getText() as Promise<string>;
+  }
+
+  selectHero(index) {
+    return this.list.get(index).click() as Promise<any>;
   }
 }
