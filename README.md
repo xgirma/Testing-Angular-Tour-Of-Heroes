@@ -63,4 +63,21 @@ Display a list of heroes.
 
 > Ref: [Display a Heroes List](https://angular.io/tutorial/toh-pt2#display-a-heroes-list)
 
+> Tag: [Source](https://github.com/xgirma/Testing-Angular-Tour-Of-Heroes/tree/v0.0.5)
+
+## Master/Detail Components
+
+> >> [HeroDetailComponent](https://github.com/xgirma/Testing-Angular-Tour-Of-Heroes/blob/master/doc/04.master-detail.components.md)
+
+| type| component  | new  | changed   | removed   | revision |
+|---|---|:---:|:---:|:---|:---:|
+|unit | app  |  0 | 0  | 0  |  0 |
+|e2e | app  |  0 | 0  | 0  |  0 |
+|e2e | heroes  |  0 | 0  | 0  |  0 |
+|e2e | heroes  |  0 | 0  | 0  |  0 |
+|e2e | hero-detail  |  0 | 0  | 0  |  0 |
+|e2e | hero-detail  |  0 | 0  | 0  |  0 |
+
+> Ref: [Master/Detail Components](https://angular.io/tutorial/toh-pt3#masterdetail-components)
+
 > Tag: [Source]()
