@@ -38,4 +38,29 @@ Add the HeroesComponent to show and edit lists of hero information.
 
 > >> [HeroesComponent](https://github.com/xgirma/Testing-Angular-Tour-Of-Heroes/blob/master/doc/02.the.hero.editor.md)
 
+| type| component  | new  | changed   | removed   | revision |
+|---|---|:---:|:---:|:---|:---:|
+|unit | app  |  0 | 0  | 0  |  0 |
+|e2e | app  |  0 | 0  | 0  |  0 |
+|e2e | heroes  |  0 | 0  | 0  |  0 |
+|e2e | heroes  |  0 | 0  | 0  |  0 |
+
 > Ref: [The Hero Editor](https://angular.io/tutorial/toh-pt1)
+
+> Tag: [Source](https://github.com/xgirma/Testing-Angular-Tour-Of-Heroes/tree/v0.0.4)
+
+## Display a Heroes List
+Display a list of heroes.
+
+> >> [Display a Heroes List](https://github.com/xgirma/Testing-Angular-Tour-Of-Heroes/blob/master/doc/03.display.a.heroes.list.md)
+
+| type| component  | new  | changed   | removed   | revision |
+|---|---|:---:|:---:|:---|:---:|
+|unit | app  |  0 | 0  | 0  |  0 |
+|e2e | app  |  0 | 0  | 0  |  0 |
+|e2e | heroes  |  0 | 0  | 0  |  0 |
+|e2e | heroes  |  0 | 0  | 0  |  0 |
+
+> Ref: [Display a Heroes List](https://angular.io/tutorial/toh-pt2#display-a-heroes-list)
+
+> Tag: [Source]()
