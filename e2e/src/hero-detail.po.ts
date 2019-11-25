@@ -1,17 +1,11 @@
-import { browser, by, element, ExpectedConditions as EC } from 'protractor';
+import { by, element, } from 'protractor';
 
-export class AppHeroes {
-  body = element(by.css('body'));
+export class HeroDetail {
   title = element(by.css('app-hero-detail > div > h2'));
-  id = element(by.css('app-heroes > div > div:nth-child(2)'));
+  id = element(by.css('app-hero-detail > div > div:nth-child(2)'));
   name = element(by.css('input'));
 
-  navigateTo() {
-    browser.get(browser.baseUrl);
-    return browser.wait(EC.presenceOf(this.body), 5000) as Promise< void>;
-  }
-
-  getDetailTitle() {
+  getTitle() {
     return this.title.getText() as Promise<string>;
   }
 

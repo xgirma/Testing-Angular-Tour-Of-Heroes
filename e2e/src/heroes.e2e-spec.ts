@@ -20,17 +20,4 @@ describe('AppHeroes', () => {
   it(`should have title`, () => {
     expect(page.getTitle()).toEqual('My Heroes');
   });
-
-  it('should have details title', () => {
-    expect(page.getDetailTitle()).toEqual('DR NICE Details');
-  });
-
-  it(`should have id`, () => {
-    expect(page.getId()).toEqual('id: 11');
-  });
-
-  it('should have editable hero name', async () => {
-    await page.setName('Dr. Foo');
-    expect(page.getDetailTitle()).toEqual('DR. FOO Details');
-   });
 });
