@@ -33,14 +33,14 @@ describe('HeroesComponent', () => {
   });
 
   it('should have title', () => {
-    expect(compiled.querySelector('h2').textContent).toContain('WINDSTORM Details');
+    // expect(compiled.querySelector('h2').textContent).toContain('WINDSTORM Details');
+    const myHero = fixture.debugElement.queryAll(By.css('h2'));
+    expect(myHero[1].nativeElement.textContent).toContain('WINDSTORM Details');
   });
 
-  // it('should have id and name', () => {
   it('should have id', () => {
     const myHero = fixture.debugElement.queryAll(By.css('div'));
     expect(myHero[0].nativeElement.textContent).toEqual('id: 1');
-    // expect(myHero[1].nativeElement.textContent).toEqual('name: Windstorm');
   });
 });
 
@@ -73,7 +73,11 @@ describe('HeroesComponent: input', () => {
     fixture.detectChanges();
 
     // two way binding
-    expect(compiled.querySelector('h2').textContent)
+    // expect(compiled.querySelector('h2').textContent)
+    //   .toEqual((component.hero.name).toUpperCase() + ' Details');
+    // const myHero = fixture.debugElement.queryAll(By.css('h2'));
+    const myHero = fixture.debugElement.queryAll(By.css('h2'));
+    expect(myHero[1].nativeElement.textContent)
       .toEqual((component.hero.name).toUpperCase() + ' Details');
   });
 });
