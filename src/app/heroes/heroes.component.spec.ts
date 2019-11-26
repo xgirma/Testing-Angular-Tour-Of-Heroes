@@ -3,7 +3,7 @@ import { By } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 
 import { HeroesComponent } from './heroes.component';
-import {HeroDetailComponent } from '../hero-detail/hero-detail.component';
+import { HeroDetailComponent } from '../hero-detail/hero-detail.component';
 import { HEROES } from '../mock-heroes';
 
 describe('HeroesComponent', () => {
