@@ -22,7 +22,7 @@ being updated, how many testes being removed, and how many times the component g
 ### Make changes to the application
 In this section we will remove the default page, add a title, and fix failing tests.
 
-> >> [AppComponent](https://github.com/xgirma/Testing-Angular-Tour-Of-Heroes/blob/master/doc/01.make.changes.to.the.application.md)
+:arrow_right: [AppComponent](https://github.com/xgirma/Testing-Angular-Tour-Of-Heroes/blob/master/doc/01.make.changes.to.the.application.md)
 
 | type| component  | new  | changed   | removed   | revision |
 |---|---|:---:|:---:|:---|:---:|
@@ -36,7 +36,7 @@ In this section we will remove the default page, add a title, and fix failing te
 ## The Hero Editor
 Add the HeroesComponent to show and edit lists of hero information. 
 
-> >> [HeroesComponent](https://github.com/xgirma/Testing-Angular-Tour-Of-Heroes/blob/master/doc/02.the.hero.editor.md)
+:arrow_right: [HeroesComponent](https://github.com/xgirma/Testing-Angular-Tour-Of-Heroes/blob/master/doc/02.the.hero.editor.md)
 
 | type| component  | new  | changed   | removed   | revision |
 |---|---|:---:|:---:|:---|:---:|
@@ -52,7 +52,7 @@ Add the HeroesComponent to show and edit lists of hero information.
 ## Display a Heroes List
 Display a list of heroes.
 
-> >> [Display a Heroes List](https://github.com/xgirma/Testing-Angular-Tour-Of-Heroes/blob/master/doc/03.display.a.heroes.list.md)
+:arrow_right: [Display a Heroes List](https://github.com/xgirma/Testing-Angular-Tour-Of-Heroes/blob/master/doc/03.display.a.heroes.list.md)
 
 | type| component  | new  | changed   | removed   | revision |
 |---|---|:---:|:---:|:---|:---:|
@@ -67,7 +67,7 @@ Display a list of heroes.
 
 ## Master/Detail Components
 
-> >> [HeroDetailComponent](https://github.com/xgirma/Testing-Angular-Tour-Of-Heroes/blob/master/doc/04.master-detail.components.md)
+:arrow_right: [HeroDetailComponent](https://github.com/xgirma/Testing-Angular-Tour-Of-Heroes/blob/master/doc/04.master-detail.components.md)
 
 | type| component  | new  | changed   | removed   | revision |
 |---|---|:---:|:---:|:---|:---:|
@@ -84,7 +84,7 @@ Display a list of heroes.
 
 ## Services
 
-> >> [HeroService](https://github.com/xgirma/Testing-Angular-Tour-Of-Heroes/blob/master/doc/05.services.md)
+:arrow_right: [HeroService](https://github.com/xgirma/Testing-Angular-Tour-Of-Heroes/blob/master/doc/05.services.md)
 
 | type| component  | new  | changed   | removed   | revision |
 |---|---|:---:|:---:|:---|:---:|
