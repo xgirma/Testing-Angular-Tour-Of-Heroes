@@ -96,7 +96,34 @@ Display a list of heroes.
 |e2e | hero-detail  |  0 | 0  | 0  |  0 |
 |unit | heroService  |  0 | 0  | 0  |  0 |
 |e2e | heroService  |  0 | 0  | 0  |  0 |
+|unit | messageService  |  0 | 0  | 0  |  0 |
+|e2e | messageService  |  0 | 0  | 0  |  0 |
+|unit | messagesComponent  |  0 | 0  | 0  |  0 |
+|e2e | messagesComponent  |  0 | 0  | 0  |  0 |
 
 > Ref: [HeroService](https://angular.io/tutorial/toh-pt4#services)
+
+> Tag: [Source](https://github.com/xgirma/Testing-Angular-Tour-Of-Heroes/tree/v0.0.7)
+
+## Routing
+
+:arrow_right: [Routing](https://github.com/xgirma/Testing-Angular-Tour-Of-Heroes/blob/master/doc/06.routing.md)
+
+| type| component  | new  | changed   | removed   | revision |
+|---|---|:---:|:---:|:---|:---:|
+|unit | app  |  0 | 0  | 0  |  0 |
+|e2e | app  |  0 | 0  | 0  |  0 |
+|unit | heroes  |  0 | 0  | 0  |  0 |
+|e2e | heroes  |  0 | 0  | 0  |  0 |
+|unit | hero-detail  |  0 | 0  | 0  |  0 |
+|e2e | hero-detail  |  0 | 0  | 0  |  0 |
+|unit | heroService  |  0 | 0  | 0  |  0 |
+|e2e | heroService  |  0 | 0  | 0  |  0 |
+|unit | messageService  |  0 | 0  | 0  |  0 |
+|e2e | messageService  |  0 | 0  | 0  |  0 |
+|unit | messagesComponent  |  0 | 0  | 0  |  0 |
+|e2e | messagesComponent  |  0 | 0  | 0  |  0 |
+
+> Ref: [Router](https://angular.io/tutorial/toh-pt5#routing)
 
 > Tag: [Source]()
