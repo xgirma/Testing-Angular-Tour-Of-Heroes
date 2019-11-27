@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { HeroesComponent } from './heroes/heroes.component';
 import { HeroDetailComponent } from './hero-detail/hero-detail.component';
+import { MessagesComponent } from './messages/messages.component';
 
 describe('AppComponent', () => {
   let component: AppComponent;
@@ -16,7 +17,8 @@ describe('AppComponent', () => {
       declarations: [
         AppComponent,
         HeroesComponent,
-        HeroDetailComponent
+        HeroDetailComponent,
+        MessagesComponent
       ],
     }).compileComponents();
   }));
@@ -38,5 +40,9 @@ describe('AppComponent', () => {
 
   it('should have app-heroes element', () => {
     expect(compiled.querySelector('app-heroes')).toBeDefined();
+  });
+
+  it('should have app-messages element', () => {
+    expect(compiled.querySelector('app-messages')).toBeDefined();
   });
 });
