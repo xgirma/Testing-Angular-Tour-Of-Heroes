@@ -15,4 +15,8 @@ export class Dashboard {
   getHeroName(index) {
     return this.heroes.get(index).getText() as Promise<string>;
   }
+
+  selectHero(index) {
+    return this.heroes.get(index).click() as Promise<void>;
+  }
 }

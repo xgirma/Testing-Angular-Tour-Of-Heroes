@@ -1,23 +1,29 @@
-import { AppHeroes } from './heroes.po';
+// import { AppHeroes } from './heroes.po';
 import { HeroDetail } from './hero-detail.po';
+import { Dashboard } from './dashboard.po';
 
 describe('HeroDetail', () => {
-  let appPage: AppHeroes;
+  // let appPage: AppHeroes;
   let heroDetailPage: HeroDetail;
+  let dashboard: Dashboard;
 
   beforeAll(() => {
-    appPage = new AppHeroes();
+    // appPage = new AppHeroes();
     heroDetailPage = new HeroDetail();
-    appPage.navigateTo();
-    appPage.selectHero(0);
+    dashboard = new Dashboard();
+    dashboard.navigateTo();
+    dashboard.selectHero(0);
+    // appPage.selectHero(0);
   });
 
   it('should have title', () => {
-    expect(heroDetailPage.getTitle()).toEqual('DR NICE Details');
+    // expect(heroDetailPage.getTitle()).toEqual('DR NICE Details');
+    expect(heroDetailPage.getTitle()).toEqual('NARCO Details');
   });
 
   it(`should have id`, () => {
-    expect(heroDetailPage.getId()).toEqual('id: 11');
+    // expect(heroDetailPage.getId()).toEqual('id: 11');
+    expect(heroDetailPage.getId()).toEqual('id: 12');
   });
 
   it('should have editable hero name', async () => {
