@@ -123,6 +123,8 @@ Display a list of heroes.
 |e2e | messageService  |  0 | 0  | 0  |  0 |
 |unit | messagesComponent  |  0 | 0  | 0  |  0 |
 |e2e | messagesComponent  |  0 | 0  | 0  |  0 |
+|unit | dashboardComponent  |  0 | 0  | 0  |  0 |
+|e2e | dashboardComponent  |  0 | 0  | 0  |  0 |
 
 > Ref: [Router](https://angular.io/tutorial/toh-pt5#routing)
 
