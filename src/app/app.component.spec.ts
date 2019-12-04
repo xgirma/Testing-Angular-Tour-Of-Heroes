@@ -42,11 +42,16 @@ describe('AppComponent', () => {
     expect(component.title).toEqual('Tour of Heroes');
   });
 
-  it('should have app-heroes element', () => {
-    expect(compiled.querySelector('app-heroes')).toBeDefined();
+  it(`should have nav to '/heroes`, () => {
+    expect(compiled.querySelector('nav > a')
+      .getAttribute('href')).toEqual('/heroes');
+  });
+
+  it('should have router-outlet element', () => {
+    expect(compiled.querySelector('router-outlet')).toBeTruthy();
   });
 
   it('should have app-messages element', () => {
-    expect(compiled.querySelector('app-messages')).toBeDefined();
+    expect(compiled.querySelector('app-messages')).toBeTruthy();
   });
 });
