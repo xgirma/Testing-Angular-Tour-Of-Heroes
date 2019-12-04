@@ -1,4 +1,4 @@
-import {browser, by, element,} from 'protractor';
+import { browser, by, element } from 'protractor';
 
 export class Dashboard {
   title = element(by.css('app-dashboard > h3'));
