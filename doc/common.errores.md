@@ -231,3 +231,13 @@ describe('DashboardComponent', () => {
   });
 });
 ```
+
+## NullInjectorError: No provider for ActivatedRoute!
+
+```text
+NullInjectorError: StaticInjectorError(DynamicTestModule)[HeroDetailComponent -> ActivatedRoute]: 
+  StaticInjectorError(Platform: core)[HeroDetailComponent -> ActivatedRoute]: 
+    NullInjectorError: No provider for ActivatedRoute!
+```
+
+Solution add add RouterTestingModule, see above
