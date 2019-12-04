@@ -1,14 +1,17 @@
 import { AppPage } from './app.po';
+import { AppHeroes } from './heroes.po';
 import { Messages } from './messages.po';
 
 describe('Messages', () => {
   let appPage: AppPage;
+  let appHeroes: AppHeroes;
   let message: Messages;
 
   beforeAll(() => {
     appPage = new AppPage();
+    appHeroes = new AppHeroes();
     message = new Messages();
-    appPage.navigateTo();
+    appHeroes.navigateTo();
   });
 
   it('should have message title', () => {
