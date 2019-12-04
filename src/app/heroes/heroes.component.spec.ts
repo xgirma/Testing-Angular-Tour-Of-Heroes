@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
+import { RouterTestingModule } from '@angular/router/testing';
 
 import { HeroesComponent } from './heroes.component';
 import { HeroDetailComponent } from '../hero-detail/hero-detail.component';
@@ -13,7 +14,7 @@ describe('HeroesComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [ FormsModule ],
+      imports: [ FormsModule, RouterTestingModule ],
       declarations: [ HeroesComponent, HeroDetailComponent ]
     })
     .compileComponents();
@@ -39,6 +40,14 @@ describe('HeroesComponent', () => {
     HEROES.forEach((hero, index) => {
       expect(heroes[index].nativeElement.textContent).toContain(hero.id);
       expect(heroes[index].nativeElement.textContent).toContain(hero.name);
+    });
+  });
+
+  it(`should have 'heroes/:id'`, () => {
+    const heroes = fixture.debugElement.queryAll(By.css('.heroes > li > a'));
+    HEROES.forEach((hero, index) => {
+      expect(heroes[index].nativeElement.getAttribute('href'))
+        .toContain(`detail`);
     });
   });
 });

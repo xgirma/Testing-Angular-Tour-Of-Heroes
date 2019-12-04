@@ -1,7 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 
 import { DashboardComponent } from './dashboard.component';
-import {By} from '@angular/platform-browser';
+import { By } from '@angular/platform-browser';
 
 describe('DashboardComponent', () => {
   let component: DashboardComponent;
@@ -10,6 +11,7 @@ describe('DashboardComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [RouterTestingModule],
       declarations: [ DashboardComponent ]
     })
     .compileComponents();
@@ -38,6 +40,14 @@ describe('DashboardComponent', () => {
     const heroes = fixture.debugElement.queryAll(By.css('h4'));
     component.heroes.forEach( (hero, index) => {
       expect(heroes[index].nativeElement.textContent).not.toEqual('');
+    });
+  });
+
+  it(`should have hero '/details/:id' link`, () => {
+    const heroes = fixture.debugElement.queryAll(By.css('a'));
+    component.heroes.forEach( (hero, index) => {
+      expect(heroes[index].nativeElement.getAttribute('href'))
+        .toContain('detail');
     });
   });
 });
