@@ -161,3 +161,73 @@ describe('HeroesComponent', () => {
   });
 });
 ```
+
+## Can't bind to 'routerLink' since it isn't a known property of 'a'.
+
+```text
+Failed: Template parse errors:
+Can't bind to 'routerLink' since it isn't a known property of 'a'. ("
+<ul class="heroes">
+  <li *ngFor="let hero of heroes">
+    <a [ERROR ->]routerLink="/detail/{{hero.id}}">
+      <span class="badge">{{hero.id}}</span> {{hero.name}}
+    </a>"): ng:///DynamicTestModule/HeroesComponent.html@3:7
+```
+
+solution: add RouterTestingModule
+
+```diff
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
++ import { RouterTestingModule } from '@angular/router/testing';
+
+import { DashboardComponent } from './dashboard.component';
+import { By } from '@angular/platform-browser';
+
+describe('DashboardComponent', () => {
+  let component: DashboardComponent;
+  let fixture: ComponentFixture<DashboardComponent>;
+  let compiled: any;
+
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
++      imports: [RouterTestingModule],
+      declarations: [ DashboardComponent ]
+    })
+    .compileComponents();
+  }));
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(DashboardComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+    compiled = fixture.debugElement.nativeElement;
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+
+  it('should have four heroes', () => {
+    expect(component.heroes.length).toEqual(4);
+  });
+
+  it('should have title', () => {
+    expect(compiled.querySelector('h3').textContent).toEqual(`Top Heroes`);
+  });
+
+  it(`should have hero names`, () => {
+    const heroes = fixture.debugElement.queryAll(By.css('h4'));
+    component.heroes.forEach( (hero, index) => {
+      expect(heroes[index].nativeElement.textContent).not.toEqual('');
+    });
+  });
+
+  it(`should have hero '/details/:id' link`, () => {
+    const heroes = fixture.debugElement.queryAll(By.css('a'));
+    component.heroes.forEach( (hero, index) => {
+      expect(heroes[index].nativeElement.getAttribute('href'))
+        .toContain('detail');
+    });
+  });
+});
+```
