@@ -134,7 +134,7 @@ Display a list of heroes.
 
 ## HTTP
 
-:arrow_right: [Routing](https://github.com/xgirma/Testing-Angular-Tour-Of-Heroes/blob/master/doc/07.http.md)
+:arrow_right: [HTTP](https://github.com/xgirma/Testing-Angular-Tour-Of-Heroes/blob/master/doc/07.http.md)
 
 | type| component  | new  | changed   | removed   | revision |
 |---|---|:---:|:---:|:---|:---:|
