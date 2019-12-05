@@ -153,6 +153,6 @@ Display a list of heroes.
 |unit | dashboard |  0 | 0  | 0  |  0 |
 |e2e | dashboard  |  0 | 0  | 0  |  0 |
 
-> Ref: [Router](https://angular.io/tutorial/toh-pt6#http)
+> Ref: [HTTP](https://angular.io/tutorial/toh-pt6#http)
 
 > Tag: [Source]()
