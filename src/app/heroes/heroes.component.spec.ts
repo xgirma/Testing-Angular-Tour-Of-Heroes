@@ -2,20 +2,35 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
+import { Observable, of } from 'rxjs';
 
 import { HeroesComponent } from './heroes.component';
 import { HeroDetailComponent } from '../hero-detail/hero-detail.component';
+import { HeroService } from '../hero.service';
 import { HEROES } from '../mock-heroes';
+import { Hero } from '../hero';
 
 describe('HeroesComponent', () => {
   let component: HeroesComponent;
   let fixture: ComponentFixture<HeroesComponent>;
   let compiled: any;
+  let heroService: any;
+  let heroServiceStub: Partial<HeroService>;
+
+  heroServiceStub = {
+    getHeroes(): Observable<Hero[]> {
+      return of(HEROES);
+    }
+  };
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [ FormsModule, RouterTestingModule ],
-      declarations: [ HeroesComponent, HeroDetailComponent ]
+      declarations: [ HeroesComponent, HeroDetailComponent ],
+      providers: [{
+        provide: HeroService,
+        useValue: heroServiceStub
+      }]
     })
     .compileComponents();
   }));
@@ -25,6 +40,7 @@ describe('HeroesComponent', () => {
     component = fixture.componentInstance;
     fixture.detectChanges();
     compiled = fixture.debugElement.nativeElement;
+    heroService = TestBed.get(HeroService);
   });
 
   it('should create', () => {
@@ -33,6 +49,7 @@ describe('HeroesComponent', () => {
 
   it(`should have a hero`, () => {
     expect(component.heroes).toBeDefined();
+    expect(component.heroes.length).toEqual(10);
   });
 
   it('should have a list of heroes', () => {
