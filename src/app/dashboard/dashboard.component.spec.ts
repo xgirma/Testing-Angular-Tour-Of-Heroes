@@ -1,18 +1,34 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
+import { By } from '@angular/platform-browser';
+import { Observable, of } from 'rxjs';
 
 import { DashboardComponent } from './dashboard.component';
-import { By } from '@angular/platform-browser';
+import { HeroService } from '../hero.service';
+import { HEROES } from '../mock-heroes';
+import { Hero } from '../hero';
 
 describe('DashboardComponent', () => {
   let component: DashboardComponent;
   let fixture: ComponentFixture<DashboardComponent>;
   let compiled: any;
+  let heroService: any;
+  let heroServiceStub: Partial<HeroService>;
+
+  heroServiceStub = {
+    getHeroes(): Observable<Hero[]> {
+      return of(HEROES.slice(0, 5));
+    }
+  };
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [RouterTestingModule],
-      declarations: [ DashboardComponent ]
+      imports: [ RouterTestingModule ],
+      declarations: [ DashboardComponent ],
+      providers: [{
+        provide: HeroService,
+        useValue: heroServiceStub
+      }]
     })
     .compileComponents();
   }));
@@ -22,6 +38,7 @@ describe('DashboardComponent', () => {
     component = fixture.componentInstance;
     fixture.detectChanges();
     compiled = fixture.debugElement.nativeElement;
+    heroService = TestBed.get(HeroService);
   });
 
   it('should create', () => {

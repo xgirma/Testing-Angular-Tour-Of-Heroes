@@ -79,7 +79,6 @@ describe('HeroDetailComponent: input', () => {
   let compiled: any;
   let heroService: any;
   let heroServiceStub: Partial<HeroService>;
-  const expectedHero: Hero = { id: 19, name: 'Magma' };
 
   heroServiceStub = {
     getHero(id: number): Observable<Hero> {
@@ -111,14 +110,6 @@ describe('HeroDetailComponent: input', () => {
     fixture.detectChanges();
     compiled = fixture.debugElement.nativeElement;
     heroService = TestBed.get(HeroService);
-  });
-
-  it(`should have text '${expectedHero.name}' in the input`, async () => {
-    fixture.detectChanges();
-    await fixture.whenStable();
-
-    const inputBox = fixture.debugElement.query(By.css('input')).nativeElement;
-    expect(inputBox.value).toEqual(expectedHero.name);
   });
 
   it('input should accept new value', async () => {
