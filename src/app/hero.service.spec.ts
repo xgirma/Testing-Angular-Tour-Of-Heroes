@@ -3,6 +3,7 @@ import { HttpClientTestingModule, HttpTestingController } from '@angular/common/
 
 import { HeroService } from './hero.service';
 import { Hero } from './hero';
+import {HttpErrorResponse} from '@angular/common/http';
 
 describe('HeroService', () => {
   let heroService: HeroService;
@@ -40,4 +41,6 @@ describe('HeroService', () => {
     expect(request.request.method).toBe('GET');
     request.flush(mockHeroes);
   });
+
+  // TODO add test for handleError
 });
