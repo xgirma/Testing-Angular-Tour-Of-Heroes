@@ -17,6 +17,7 @@ describe('HeroDetailComponent', () => {
   let heroService: any;
   let heroServiceStub: Partial<HeroService>;
   const expectedHero: Hero = { id: 20, name: 'Tornado' };
+  let buttons;
 
   heroServiceStub = {
     getHero(id: number): Observable<Hero> {
@@ -48,6 +49,7 @@ describe('HeroDetailComponent', () => {
     fixture.detectChanges();
     compiled = fixture.debugElement.nativeElement;
     heroService = TestBed.get(HeroService);
+    buttons = fixture.debugElement.queryAll(By.css('button'));
   });
 
   it('should create', () => {
@@ -70,6 +72,14 @@ describe('HeroDetailComponent', () => {
 
     const inputBox = fixture.debugElement.query(By.css('input')).nativeElement;
     expect(inputBox.value).toEqual(expectedHero.name);
+  });
+
+  it(`should have go back button`, () => {
+    expect(buttons[0].nativeElement.textContent).toEqual('go back');
+  });
+
+  it(`should have save button`, () => {
+    expect(buttons[1].nativeElement.textContent).toEqual('save');
   });
 });
 
