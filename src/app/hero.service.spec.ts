@@ -47,7 +47,6 @@ describe('HeroService', () => {
     heroService.getHero(11).subscribe(hero => {
       expect(hero.id).toEqual(11);
       expect(hero.name).toEqual(`Dr Nice`);
-      console.log(request.request.url);
     });
 
     const request = httpMock.expectOne( `api/heroes/11`, 'call to getHero');
