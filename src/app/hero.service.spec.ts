@@ -1,13 +1,18 @@
-import { inject, TestBed } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 
 import { HeroService } from './hero.service';
 import { Hero } from './hero';
-import {HttpErrorResponse} from '@angular/common/http';
 
 describe('HeroService', () => {
   let heroService: HeroService;
   let httpMock: HttpTestingController;
+
+  const mockHeroes: Hero[] = [
+    { id: 11, name: 'Dr Nice' },
+    { id: 12, name: 'Narco' },
+    { id: 13, name: 'Bombasto' }
+  ];
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -26,21 +31,27 @@ describe('HeroService', () => {
     expect(heroService).toBeTruthy();
   });
 
-  it(`should get heroes data`, () => {
-    const mockHeroes: Hero[] = [
-      { id: 11, name: 'Dr Nice' },
-      { id: 12, name: 'Narco' },
-      { id: 13, name: 'Bombasto' }
-    ];
+  it(`should get heroes`, () => {
     heroService.getHeroes().subscribe(heroes => {
       expect(heroes.length).toEqual(3);
       expect(heroes[0].id).toEqual(11);
       expect(heroes[0].name).toEqual(`Dr Nice`);
     });
-    const request = httpMock.expectOne( `api/heroes`, 'call to api');
+    const request = httpMock.expectOne( `api/heroes`, 'call to getHeroes');
     expect(request.request.method).toBe('GET');
     request.flush(mockHeroes);
+    httpMock.verify();
   });
 
-  // TODO add test for handleError
+  it(`should get hero`, () => {
+    heroService.getHero(11).subscribe(hero => {
+      expect(hero.id).toEqual(11);
+      expect(hero.name).toEqual(`Dr Nice`);
+      console.log(request.request.url);
+    });
+
+    const request = httpMock.expectOne( `api/heroes/11`, 'call to getHero');
+    expect(request.request.method).toBe('GET');
+    request.flush(mockHeroes[0]);
+  });
 });
