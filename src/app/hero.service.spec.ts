@@ -237,4 +237,56 @@ describe('HeroService', () => {
     expect(logSpy).toHaveBeenCalledWith(expectedLog);
     expect(addSpy).toHaveBeenCalledWith(expectedMessage);
   });
+
+  it('should delete hero', () => {
+    const hero = { id: 100, name: 'Matt' };
+    const expectedLog = `deleted hero id=100`;
+    const expectedMessage = `HeroService: deleted hero id=100`;
+
+    const handleErrorSpy = spyOn<any>(heroService, 'handleError').and.callThrough();
+    const logSpy = spyOn<any>(heroService, 'log').and.callThrough();
+    const addSpy = spyOn<any>(messageService, 'add').and.callThrough();
+
+    heroService.deleteHero(hero).subscribe( response => {
+      expect(response).toEqual(hero);
+    });
+
+    const request = httpMock.expectOne('api/heroes/100', `call to deleteHero`);
+    expect(request.request.method).toEqual('DELETE');
+    request.flush(hero);
+
+    expect(handleErrorSpy).toHaveBeenCalledTimes(1);
+    expect(logSpy).toHaveBeenCalledTimes(1);
+    expect(addSpy).toHaveBeenCalledTimes(1);
+
+    expect(handleErrorSpy).toHaveBeenCalledWith('deleteHero');
+    expect(logSpy).toHaveBeenCalledWith(expectedLog);
+    expect(addSpy).toHaveBeenCalledWith(expectedMessage);
+  });
+
+  it('should handle error', () => {
+    const hero = { id: 100, name: 'Matt' };
+    const expectedLog = `deleteHero failed: Http failure response for api/heroes/100: 404 Bad Request`;
+    const expectedMessage = `HeroService: deleteHero failed: Http failure response for api/heroes/100: 404 Bad Request`;
+
+    const handleErrorSpy = spyOn<any>(heroService, 'handleError').and.callThrough();
+    const logSpy = spyOn<any>(heroService, 'log').and.callThrough();
+    const addSpy = spyOn<any>(messageService, 'add').and.callThrough();
+
+    heroService.deleteHero(hero).subscribe( response => {
+      expect(response).toBeUndefined();
+    });
+
+    const request = httpMock.expectOne('api/heroes/100', `call to deleteHero`);
+    expect(request.request.method).toEqual('DELETE');
+    request.flush(invalidRequestBody, invalidRequestOptions);
+
+    expect(handleErrorSpy).toHaveBeenCalledTimes(1);
+    expect(logSpy).toHaveBeenCalledTimes(1);
+    expect(addSpy).toHaveBeenCalledTimes(1);
+
+    expect(handleErrorSpy).toHaveBeenCalledWith('deleteHero');
+    expect(logSpy).toHaveBeenCalledWith(expectedLog);
+    expect(addSpy).toHaveBeenCalledWith(expectedMessage);
+  });
 });
