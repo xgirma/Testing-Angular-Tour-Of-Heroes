@@ -289,4 +289,57 @@ describe('HeroService', () => {
     expect(logSpy).toHaveBeenCalledWith(expectedLog);
     expect(addSpy).toHaveBeenCalledWith(expectedMessage);
   });
+
+  it('should search for hero', () => {
+    const name = 'Narco';
+    const expectedLog = `found heroes matching "Narco"`;
+    const expectedMessage = `HeroService: found heroes matching "Narco"`;
+
+    const handleErrorSpy = spyOn<any>(heroService, 'handleError').and.callThrough();
+    const logSpy = spyOn<any>(heroService, 'log').and.callThrough();
+    const addSpy = spyOn<any>(messageService, 'add').and.callThrough();
+
+    heroService.searchHeroes(name).subscribe( response => {
+      expect(response).not.toBeUndefined();
+      }
+    );
+
+    const request = httpMock.expectOne(`api/heroes/?name=${name}`, `call to searchHeroes`);
+    expect(request.request.method).toEqual('GET');
+    request.flush(mockHeroes[1]);
+
+    expect(handleErrorSpy).toHaveBeenCalledTimes(1);
+    expect(logSpy).toHaveBeenCalledTimes(1);
+    expect(addSpy).toHaveBeenCalledTimes(1);
+
+    expect(handleErrorSpy).toHaveBeenCalledWith('searchHeroes', [  ]);
+    expect(logSpy).toHaveBeenCalledWith(expectedLog);
+    expect(addSpy).toHaveBeenCalledWith(expectedMessage);
+  });
+
+  it(`should handle error: searchHeroes`, () => {
+    const name = 'Foo';
+    const expectedLog = `searchHeroes failed: Http failure response for api/heroes/?name=Foo: 404 Bad Request`;
+    const expectedMessage = `HeroService: searchHeroes failed: Http failure response for api/heroes/?name=Foo: 404 Bad Request`;
+
+    const handleErrorSpy = spyOn<any>(heroService, 'handleError').and.callThrough();
+    const logSpy = spyOn<any>(heroService, 'log').and.callThrough();
+    const addSpy = spyOn<any>(messageService, 'add').and.callThrough();
+
+    heroService.searchHeroes(name).subscribe( response => {
+      expect(response).toEqual( [ ]);
+    });
+
+    const request = httpMock.expectOne(`api/heroes/?name=${name}`, `call to searchHeroes`);
+    expect(request.request.method).toEqual('GET');
+    request.flush(invalidRequestBody, invalidRequestOptions);
+
+    expect(handleErrorSpy).toHaveBeenCalledTimes(1);
+    expect(logSpy).toHaveBeenCalledTimes(1);
+    expect(addSpy).toHaveBeenCalledTimes(1);
+
+    expect(handleErrorSpy).toHaveBeenCalledWith('searchHeroes', [  ]);
+    expect(logSpy).toHaveBeenCalledWith(expectedLog);
+    expect(addSpy).toHaveBeenCalledWith(expectedMessage);
+  });
 });

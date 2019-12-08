@@ -152,6 +152,8 @@ Display a list of heroes.
 |e2e | messagesComponent  |  0 | 0  | 0  |  0 |
 |unit | dashboard |  0 | 0  | 0  |  0 |
 |e2e | dashboard  |  0 | 0  | 0  |  0 |
+|unit | heroSearch  |  0 | 0  | 0  |  0 |
+|e2e | heroSearch  |  0 | 0  | 0  |  0 |
 
 > Ref: [HTTP](https://angular.io/tutorial/toh-pt6#http)
 

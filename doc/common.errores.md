@@ -241,3 +241,41 @@ NullInjectorError: StaticInjectorError(DynamicTestModule)[HeroDetailComponent ->
 ```
 
 Solution add add RouterTestingModule, see above
+
+##  NullInjectorError: No provider for HttpClient!
+```text
+NullInjectorError: StaticInjectorError(DynamicTestModule)[HeroService -> HttpClient]: 
+  StaticInjectorError(Platform: core)[HeroService -> HttpClient]: 
+    NullInjectorError: No provider for HttpClient!
+```
+
+solution
+```diff
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
++ import { HttpClientModule } from '@angular/common/http';
+
+import { HeroSearchComponent } from './hero-search.component';
+
+describe('HeroSearchComponent', () => {
+  let component: HeroSearchComponent;
+  let fixture: ComponentFixture<HeroSearchComponent>;
+
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      declarations: [ HeroSearchComponent ] ,
++      imports: [ HttpClientModule ]
+    })
+    .compileComponents();
+  }));
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(HeroSearchComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});
+```
