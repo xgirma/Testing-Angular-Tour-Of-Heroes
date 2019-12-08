@@ -3,7 +3,7 @@ import { browser, by, element, ExpectedConditions as EC } from 'protractor';
 export class AppHeroes {
   body = element(by.css('body'));
   title = element(by.css('app-heroes > h2'));
-  list = element.all(by.css('.heroes > li'));
+  list = element.all(by.css('.heroes > li > a'));
 
   navigateTo() {
     browser.get(browser.baseUrl + `/heroes`);
@@ -15,10 +15,12 @@ export class AppHeroes {
   }
 
   getHeroDetail(index) {
-    return this.list.get(index).getText() as Promise<string>;
+    const el = element.all(by.css(`.heroes > li:nth-child(${index}) > a`));
+    return el.getText() as Promise<string>;
   }
 
   selectHero(index) {
-    return this.list.get(index).click() as Promise<any>;
+    const el = element.all(by.css(`.heroes > li:nth-child(${index}) > a`));
+    return el.click() as Promise<any>;
   }
 }

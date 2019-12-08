@@ -12,8 +12,7 @@ describe('AppHeroes', () => {
 
   it('should have a list of heroes', () => {
     HEROES.forEach((hero, index) => {
-      expect(page.getHeroDetail(index)).toContain(hero.id);
-      expect(page.getHeroDetail(index)).toContain(hero.name);
+      expect(page.getHeroDetail(index + 1)).toEqual([`${hero.id} ${hero.name}`]);
     });
   });
 
