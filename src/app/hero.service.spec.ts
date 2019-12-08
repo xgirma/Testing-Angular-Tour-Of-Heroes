@@ -187,4 +187,54 @@ describe('HeroService', () => {
     expect(logSpy).toHaveBeenCalledWith(expectedLog);
     expect(addSpy).toHaveBeenCalledWith(expectedMessage);
   });
+
+  it('should add a hero', () => {
+    const expectedLog = 'added hero w/id=13';
+    const expectedMessage = 'HeroService: added hero w/id=13';
+
+    const handleErrorSpy = spyOn<any>(heroService, 'handleError').and.callThrough();
+    const logSpy = spyOn<any>(heroService, 'log').and.callThrough();
+    const addSpy = spyOn(messageService, 'add').and.callThrough();
+
+    heroService.addHero(mockHeroes[2]).subscribe(response => {
+      expect(response).toEqual(mockHeroes[2]);
+    });
+
+    const request = httpMock.expectOne('api/heroes', `call to addHero`);
+    expect(request.request.method).toEqual('POST');
+    request.flush(mockHeroes[2]);
+
+    expect(handleErrorSpy).toHaveBeenCalledTimes(1);
+    expect(logSpy).toHaveBeenCalledTimes(1);
+    expect(addSpy).toHaveBeenCalledTimes(1);
+
+    expect(handleErrorSpy).toHaveBeenCalledWith('addHero');
+    expect(logSpy).toHaveBeenCalledWith(expectedLog);
+    expect(addSpy).toHaveBeenCalledWith(expectedMessage);
+  });
+
+  it('should handle error: addHero', () => {
+    const expectedLog = `addHero ${errorMessage}`;
+    const expectedMessage = `HeroService: addHero ${errorMessage}`;
+
+    const handleErrorSpy = spyOn<any>(heroService, 'handleError').and.callThrough();
+    const logSpy = spyOn<any>(heroService, 'log').and.callThrough();
+    const addSpy = spyOn(messageService, 'add').and.callThrough();
+
+    heroService.addHero(mockHeroes[2]).subscribe(response => {
+      expect(response).toBeUndefined();
+    });
+
+    const request = httpMock.expectOne('api/heroes', `call to addHero`);
+    expect(request.request.method).toEqual('POST');
+    request.flush(invalidRequestBody, invalidRequestOptions);
+
+    expect(handleErrorSpy).toHaveBeenCalledTimes(1);
+    expect(logSpy).toHaveBeenCalledTimes(1);
+    expect(addSpy).toHaveBeenCalledTimes(1);
+
+    expect(handleErrorSpy).toHaveBeenCalledWith('addHero');
+    expect(logSpy).toHaveBeenCalledWith(expectedLog);
+    expect(addSpy).toHaveBeenCalledWith(expectedMessage);
+  });
 });
