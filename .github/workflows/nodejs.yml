@@ -19,7 +19,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: npm install, lint, unit test and e2e tests
         run: |
-          npm install
+          npm ci
           npm run lint
           npm run start &
           npm test -- --watch false --browsers ChromeHeadless
