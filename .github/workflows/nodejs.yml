@@ -20,6 +20,7 @@ jobs:
       - name: npm install, lint, unit test and e2e tests
         run: |
           npm ci
+          npm install -g @angular/cli
           npm run lint
           npm run start &
           npm test -- --watch false --browsers ChromeHeadless
