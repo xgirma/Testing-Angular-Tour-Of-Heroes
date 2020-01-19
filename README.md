@@ -1,5 +1,5 @@
 # Testing Angular Tour Of Heroes
-[![Build Status](https://travis-ci.com/xgirma/Testing-Angular-Tour-Of-Heroes.svg?branch=master)](https://travis-ci.com/xgirma/Testing-Angular-Tour-Of-Heroes)
+[![GitHub Actions status | xgirma/angular_sandbox](https://github.com//xgirma/Testing-Angular-Tour-Of-Heroes/workflows/NoceCI/badge.svg)](https://github.com//xgirma/Testing-Angular-Tour-Of-Heroes/actions?workflow=NodeCI)
 
 Exploring the process of unit- and e2e-testing the [Tour of Heroes application](https://angular.io/tutorial). 
 Focusing on the connection between application progression and the number of unit- and 
